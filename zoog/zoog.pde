@@ -1,3 +1,7 @@
+int xLocRect = 300;
+int yLocRect = 300;
+
+
 void setup(){
   size(600, 600); 
 }
@@ -8,13 +12,13 @@ void draw(){
   rectMode(CENTER);
   stroke(0);
   fill(127);
-  rect(300, 300, 50, 200);
+  rect(xLocRect, yLocRect, 50, 200); // middle bit 
   fill(255);
-  ellipse(300, 200, 100, 100);
+  ellipse(xLocRect, xLocRect-100, 100, 100); // face 
   fill(0);
-  ellipse(270, 200, 20, 50);
-  ellipse(330, 200, 20, 50);
+  ellipse(xLocRect-30, yLocRect-100, 20, 50); // left eye 
+  ellipse(xLocRect+30, yLocRect-100, 20, 50); // right eye 
 
-  line(275, 400, 265, 415);
-  line(325, 400, 335, 415);
+  line(xLocRect-25, yLocRect+400, xLocRect-35, yLocRect); // left leg 
+  line(325, 400, 335, 415); // right leg
 }
