@@ -1,5 +1,6 @@
 void setup(){
  size(512, 348); 
+ 
 }
 void draw(){
   background(255);
@@ -7,12 +8,14 @@ void draw(){
 }
 
 void drawWg(){
+  float xPos = 50;
+  float yPos = 174;
   ellipseMode(CENTER);
   fill(0);
-  ellipse(50, 174, 50, 50); // face 
+  ellipse(xPos, yPos, 50, 50); // face 
   fill(255);
   noStroke();
-  triangle( 50, 174, 59, 197, 99,186.5); // mouth
+  triangle( xPos, yPos, 59, 197, 99,186.5); // mouth
   fill(0);
   triangle(50, 199, 25, 270, 75, 270); //main Body
   fill(0);
