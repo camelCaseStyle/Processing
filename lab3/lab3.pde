@@ -19,7 +19,7 @@ void draw(){
   rect(windowX/2, windowY/2, xPos, yPos); // inner square
   fill(127); 
   
-  // Small sqaures
+  // Small squares
   rect((windowX-xPos)/2, windowY/2, widthFig/2, heightFig/2);
   rect((windowX+xPos)/2, windowY/2, widthFig/2, heightFig/2);
   rect(windowX/2, (windowY-yPos)/2, widthFig/2, heightFig/2);
@@ -28,6 +28,7 @@ void draw(){
   // Lines 
   line(xPos, yPos, windowX-xPos, windowY-yPos); // from top left to bottom right 
   line(windowX-xPos, yPos, xPos, windowY-yPos); // from top right to bottom left
+  
   // Circles 
   ellipse(windowX-xPos, yPos, widthFig, heightFig); // top right 
   ellipse(xPos, windowY-yPos, widthFig, heightFig); // bottom left
