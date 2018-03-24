@@ -2,24 +2,25 @@
 xPos and yPos handle mrGW 
 */
 
-float xPos = 150;
-float yPos = 174;
-float figWidth = 40;
-float figHeight = 40;
+float xPos = 100;
+float yPos = 225;
+float figWidthGW = 40/2;
+float figHeightGW = 40/2;
+float startingPosX = 100;
 
 
 void drawGW(){
+  noStroke();
   ellipseMode(CENTER);
   fill(0);
   
   // face of MrGw
-  ellipse(xPos, yPos, figWidth, figHeight); 
+  ellipse(xPos, yPos, figWidthGW, figHeightGW); 
   
   // body of Mr Gw
-  triangle(xPos, yPos+figHeight/2, xPos-30, yPos+figHeight*2, xPos-30, (yPos+figHeight-10));  
-  
+  triangle(xPos, yPos+figHeightGW/2, xPos-30, yPos+figHeightGW*2, xPos-19, (yPos+figHeightGW-10));  
+
   // Mouth of GW
   fill(#9EABAE);
-  noStroke();
-  ellipse(xPos+figWidth/4, yPos+figWidth/2, figWidth/4, figHeight);
+  ellipse(xPos+figWidthGW/4, yPos+figWidthGW/2, figWidthGW/4, figHeightGW);
 }
