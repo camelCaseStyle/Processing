@@ -1,6 +1,7 @@
 boolean isInTheHouse = false;
 boolean doorIsClosed = true;
 int doorCounter = 0;
+int countOfSeconds = 0;
 
 void setup(){
  size(512, 348); 
@@ -8,8 +9,8 @@ void setup(){
  
 }
 void draw(){
-  
   background(#9EABAE);
+  detectCollision();
   drawGW();
   drawDoor();
   drawLinesOnFloor();
@@ -25,7 +26,13 @@ void draw(){
     
     doorCounter = (int)random(180, 480);
   }
-
+  hammer();
+  countOfSeconds ++;
+  if(countOfSeconds == 60){
+    countOfSeconds = 0;
+    moveHammerDown();
+    
+  }
   
 }
 
@@ -55,7 +62,6 @@ void keyPressed(){
       default:
         break;
     }
-    println("xpos= " +xPos);
   }
 }
 
@@ -65,6 +71,15 @@ void enterDoorAndReset(){
   doorIsClosed = true;
   
 }
+
+void detectCollision(){
+  println("distance = "+dist(xPos, yPos, xPosHammer, yPosHammer));
+  if ((int)dist(xPos, yPos, xPosHammer, yPosHammer) < 15){
+    enterDoorAndReset();
+    resetHammer();
+  }
+}
+
 void mousePressed(){
   println("xPos = "+ mouseX +" ,mouseY = " +mouseY);  
 }
