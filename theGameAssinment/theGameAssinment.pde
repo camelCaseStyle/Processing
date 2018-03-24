@@ -29,7 +29,7 @@ void draw(){
   }
   hammer();
   countOfSeconds ++;
-  if(countOfSeconds == 60){
+  if(countOfSeconds == 30){
     countOfSeconds = 0;
     moveHammerDown();
     
