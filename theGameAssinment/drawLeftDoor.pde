@@ -15,13 +15,13 @@ void drawLeftDoor(){
     line(466, 265, 488, 271);
     line(488, 170, 488, 271);
     //Window
-    quad(468, 226, 477, 224, 478, 230, 468,232);
-    ellipse(483, 240, 5, 5);
+    quad(468, 191, 478, 189, 478, 196, 469,198);
+    ellipse(483, 223, 5, 5);
   }else{
     noStroke();
-    ellipse(426, 242, 5, 5);
+    ellipse(426, 220, 5, 5);
     rectMode(CENTER);
-    rect(440, 229, 10, 10);
+    rect(440, 191, 10, 10);
   }
 
   

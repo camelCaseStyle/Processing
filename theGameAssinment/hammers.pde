@@ -2,6 +2,7 @@ int xPosHammer = (int) random(86, 365);
 int yPosHammer = 30;
 int gradient = 10;
 int hittingBitGradient = 3;
+int BOTTOMOFSCREEN = 273;
 void hammer(){
   stroke(0);
   //the hammer rod 
@@ -13,6 +14,9 @@ void hammer(){
 
 void moveHammerDown(){
   yPosHammer += 10;
+  if(yPosHammer > BOTTOMOFSCREEN){
+    resetHammer();
+  }
 }
 void resetHammer(){
   xPosHammer = (int) random(86, 365);
