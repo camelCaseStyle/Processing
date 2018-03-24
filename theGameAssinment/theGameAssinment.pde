@@ -47,7 +47,7 @@ void keyPressed(){
         if(xPos - 20 < leftEdge){
           break;
         }
-        xPos -= 20;
+        xPos -= 50;
         break;
       case RIGHT:
         if(xPos == rightEdge){
@@ -57,7 +57,7 @@ void keyPressed(){
             enterDoorAndReset();
           }
         }else if(xPos < rightEdge){
-          xPos += 20;
+          xPos += 50;
         }
         
         break;
@@ -76,7 +76,7 @@ void scoreField(){
 
 void enterDoorAndReset(){
   score += 1;
-  xPos += 50;
+  xPos += 30;
   xPos = startingPosX;
   doorIsClosed = true;
   
