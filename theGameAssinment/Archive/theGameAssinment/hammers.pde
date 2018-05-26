@@ -16,7 +16,7 @@ void moveHammerDown(){
   yPosHammer += 10;
   if(yPosHammer > BOTTOMOFSCREEN){
     resetHammer();
-    scoreField(tool);
+    scoring(tool);
   }
 }
 void resetHammer(){

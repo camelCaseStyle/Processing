@@ -3,15 +3,21 @@ boolean doorIsClosed = true;
 int doorCounter = 0;
 int countOfSeconds = 0;
 int score = 0;
-int circlesDrawn = 0;
 
+int circlesDrawnGray = 0;
+int circlesDrawnRed = 0;
+int numOfRows = 1;
 
 /*
 **Scoring Keys 
 */
 final int tool = 0;
 final int playerGotHome = 1;
-final int rowFull = 3;
+final int collision = 2; 
+
+
+
+
 
 
 
@@ -41,13 +47,14 @@ void draw(){
   }
   hammer();
   countOfSeconds ++;
-  if(countOfSeconds == 30){
+  if(countOfSeconds == 5){
     countOfSeconds = 0;
     moveHammerDown();
+  
     
   }
   
-  nicerCircles(circlesDrawn);
+  nicerCircles();
 
   
 }
@@ -69,31 +76,32 @@ void keyPressed(){
             break;
           }else{
             //player can enter home 
+            scoring(playerGotHome);
             enterDoorAndReset();
           }
         }else if(xPos < rightEdge){
           xPos += 50;
         }
-        
         break;
       default:
         break;
     }
   }
 }
-void scoreField(int action){
+void scoring(int action){
   switch(action){
     case tool:
-      circlesDrawn = 8;;
-      nicerCircles(1);
-      nicerCircles(circlesDrawn);
+      circlesDrawnGray += 1;
       break;
     case playerGotHome:
-      //circlesDrawn += 3; 
-      nicerCircles(circlesDrawn);
+      circlesDrawnGray += 3; 
+      break;
+    
+    case collision:
+      circlesDrawnRed += 8;
       break;
       
-    case rowFull:
+    default:
       break;
   }
   
@@ -101,7 +109,7 @@ void scoreField(int action){
 }
 
 void enterDoorAndReset(){
-  scoreField(playerGotHome);
+  
   xPos += 30;
   xPos = startingPosX;
   doorIsClosed = true;
@@ -112,7 +120,8 @@ void detectCollision(){
   if ((int)dist(xPos, yPos, xPosHammer, yPosHammer) < 15){
     enterDoorAndReset();
     resetHammer();
-    score = 0;
+    scoring(collision);
+    
   }
 }
 
